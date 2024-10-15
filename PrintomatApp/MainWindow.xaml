@@ -1,0 +1,42 @@
+﻿<Window x:Class="PrintomatApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"     
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PrintomatApp" Height="300" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Выбор файла -->
+            <RowDefinition Height="Auto"/>
+            <!-- Опции печати -->
+            <RowDefinition Height="Auto"/>
+            <!-- Количество копий -->
+            <RowDefinition Height="*"/>
+            <!-- Кнопка печати -->
+        </Grid.RowDefinitions>
+        <!-- Кнопка выбора файла и текстовое поле -->
+        <StackPanel Orientation="Horizontal">
+            <Button Name="btnSelectFile" Content="Выбрать PDF файл" Click="btnSelectFile_Click"
+                    Width="150" Height="30" HorizontalAlignment="Left"/>
+            <TextBox Name="txtFilePath" Margin="10,0,0,0" IsReadOnly="True" TextWrapping="Wrap" Width="200"/>
+        </StackPanel>
+
+        <!-- Опции печати -->
+        <GroupBox Header="Опции печати" Grid.Row="1" Margin="0,10,0,0">
+            <StackPanel>
+                <RadioButton Name="rbSingleSided" Content="Односторонняя печать" IsChecked="True"/>
+                <RadioButton Name="rbDoubleSided" Content="Двусторонняя печать"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Ввод количества копий -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,10,0,0">
+            <Label Content="Количество копий:" VerticalAlignment="Center"/>
+            <TextBox Name="txtCopies" Width="50" Margin="10,0,0,0" Text="1"/>
+        </StackPanel>
+
+        <!-- Кнопка печати -->
+        <Button Name="btnPrint" Content="Печатать" Click="btnPrint_Click"
+                Width="150" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Grid.Row="3" Margin="0,10,0,0"/>
+    </Grid>
+</Window>
